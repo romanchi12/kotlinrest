@@ -12,5 +12,5 @@ import java.util.*
  */
 @Repository
 interface TenderRepository:JpaRepository<Tender, UUID>{
-    fun findAllById(id:UUID):Tender
+    fun findAllById(id:UUID):Tender?
 }

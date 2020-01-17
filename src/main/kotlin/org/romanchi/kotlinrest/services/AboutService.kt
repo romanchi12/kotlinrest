@@ -15,8 +15,12 @@ import java.util.*
 @Service
 class AboutService(@Autowired private val tenderRepository:TenderRepository){
 
-    fun getTenderInfo(): Tender {
-        val id = UUID.fromString("62e7cbba-45ab-479b-89ed-b4e55b7b86aa")
+    fun getTenderInfo(id:String): Tender? {
+        val id = UUID.fromString(id)
         return tenderRepository.findAllById(id)
+    }
+
+    fun save(tender: Tender){
+        tenderRepository.save(tender)
     }
 }
