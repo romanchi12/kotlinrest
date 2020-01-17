@@ -14,12 +14,12 @@ import javax.persistence.*
 @NoArgsConstructor
 data class Tender(@Id
                   @Column(name="id")
-                  val id: UUID,
+                  var id: UUID?,
 
                   @Column(name="n_bid")
                   var documentNumber: String,
 
                   @OneToOne(fetch = FetchType.LAZY)
                   @JoinColumns(JoinColumn(name = "id_object", referencedColumnName = "id", insertable = false, updatable = false))
-                  val organization: Organization? = null
+                  var organization: Organization? = null
                   )
