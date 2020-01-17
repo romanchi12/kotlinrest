@@ -2,10 +2,7 @@ package org.romanchi.kotlinrest.models
 
 import lombok.NoArgsConstructor
 import java.util.*
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.Id
-import javax.persistence.Table
+import javax.persistence.*
 
 /**
  *@project   kotlinrest
@@ -17,9 +14,12 @@ import javax.persistence.Table
 @NoArgsConstructor
 data class Tender(@Id
                   @Column(name="id")
-                  val id: UUID?,
+                  val id: UUID,
 
                   @Column(name="n_bid")
-                  val documentNumber: String){
-    /*constructor(): this(null, "")*/
-}
+                  var documentNumber: String,
+
+                  @OneToOne(fetch = FetchType.LAZY)
+                  @JoinColumns(JoinColumn(name = "id_object", referencedColumnName = "id", insertable = false, updatable = false))
+                  val organization: Organization? = null
+                  )

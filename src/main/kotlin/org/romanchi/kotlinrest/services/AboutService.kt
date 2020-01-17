@@ -16,7 +16,7 @@ import java.util.*
 class AboutService(@Autowired private val tenderRepository:TenderRepository){
 
     fun getTenderInfo(): Tender {
-        val id = UUID.fromString("60733e98-10bf-4b1e-8b44-bf4432a2e36e")
+        val id = UUID.fromString("62e7cbba-45ab-479b-89ed-b4e55b7b86aa")
         return tenderRepository.findAllById(id)
     }
 }
